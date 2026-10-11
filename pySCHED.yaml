@@ -1,10 +1,16 @@
 name: pySCHED
 dependencies:
-  - python>=3.9
+  - astropy
+  - bottle
+  - conda-forge::formlayout
+  - conda-forge::fortranformat
   - conda-forge::gfortran
+  - conda-forge::pyqt
   - git
+  - gitpython
+  - matplotlib
   - numpy>=2.0
   - pip
-  - conda-forge::pyqt
+  - requests
   - pip:
-    - pythonSCHED
+    - git+https://github.com/voitsik/pysched.git

@@ -1,6 +1,10 @@
 # pySCHED
 
 
+This is a fork of the JIVE **pySCHED** project. The purpose of this fork is to support modern Python environments, mainly NumPy 2.0 and later.
+
+
+## Introduction
 
 **pySCHED** is a program for planning and scheduling very long baseline interferometry (VLBI) observations conducted by different networks such as the European VLBI Network (EVN), the Very Long Baseline Array (VLBA), the High Sensitivity Array (HSA), the Global VLBI, the Australian Long Baseline Array (LBA), or the Korean VLBI Network (KVN). **pySCHED** produces the standard files that need to be distributed to the different telescopes and correlators for VLBI observations and operations.
 
@@ -17,7 +21,7 @@
 
 ## Getting started
 
-To learn how to write a scheduling file (`.key`) that can be used to generate the observing files (`.vex` file) with **pySCHED**, you can follow the User Guide at the [EVN Scheduling Page](https://www.evlbi.org/evn-scheduling). This documentaion is focused on observations with the European VLBI Network (EVN). For a more extended documentation on how to write the scheduling files, please take a look at the general [NRAO SCHED User Manual](http://www.aoc.nrao.edu/~cwalker/sched/).
+To learn how to write a scheduling file (`.key`) that can be used to generate the observing files (`.vex` file) with **pySCHED**, you can follow the User Guide at the [EVN Scheduling Page](https://evlbi.org/observing-schedule-preparation). This documentaion is focused on observations with the European VLBI Network (EVN). For a more extended documentation on how to write the scheduling files, please take a look at the general [NRAO SCHED User Manual](http://www.aoc.nrao.edu/~cwalker/sched/).
 
 Once the `.key` file is prepared, **pySCHED** can generate the scheduling files. The basic operations can be conducted by running:
 
@@ -48,7 +52,7 @@ where the optional parameter `-p`  retrieves the graphical mode in order to be a
 
 The recommended installation method for **pySCHED** is to use a conda compatible program. There are a few options for conda installers, like [Anaconda](https://www.anaconda.com/download), [Miniconda](https://docs.anaconda.com/miniconda/) and [Miniforge](https://github.com/conda-forge/miniforge). We recommend [Miniforge](https://github.com/conda-forge/miniforge), since it uses the conda-forge channels by default to download packages, which is free to use, while the default channel of the two other options are not free to use in all circumstances. See [this](https://www.anaconda.com/blog/is-conda-free#summarize) blog for further details and links.
 
-After installing your choice of conda, download [this](https://github.com/jive-vlbi/sched/raw/python/pySCHED.yaml) YAML file, which describes a conda environment including all mentioned dependencies and **pySCHED**. To use it:
+After installing your choice of conda, download [this](https://github.com/voitsik/pysched/raw/python/pySCHED.yaml) YAML file, which describes a conda environment including all mentioned dependencies and **pySCHED**. To use it:
 
 ```bash
 conda env create -f pySCHED.yaml
@@ -60,10 +64,12 @@ conda activate pySCHED
 We recommend installing **pySCHED** in a dedicated environment. Install the latest release with:
 
 ```bash
-python -m pip install pythonSCHED
+python -m venv pySCHED
+. pySCHED/bin/activate
+python -m pip install git+https://github.com/voitsik/pysched.git
 ```
 
-To build and install from a source checkout, use:
+To build and install from a local source checkout, use:
 
 ```bash
 python -m pip install .
@@ -79,13 +85,14 @@ The command to update pySCHED is, when using a conda installation:
 
 ```bash
 conda activate pySCHED
-pip install --upgrade pythonSCHED
+pip install --upgrade git+https://github.com/voitsik/pysched.git
 ```
 
-Or when pySCHED is installed outside of a virtual environment:
+Or when pySCHED is installed in a Python virtual environment:
 
 ```bash
-sudo pip3 install --upgrade pythonSCHED
+. pySCHED/bin/activate
+pip install --upgrade git+https://github.com/voitsik/pysched.git
 ```
 
 
