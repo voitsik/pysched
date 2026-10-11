@@ -23,7 +23,7 @@ def gintent(intents, entries, scan_index):
                 s.schn2a.nintent += 1
                 entry.iscint[intent_index] = s.schn2a.nintent
             else:
-                entry.iscint[intent_index] = stored_indices[0] + 1
+                entry.iscint[intent_index] = stored_indices[0, 0] + 1
 
         if "NONE" in (intent.upper() for intent in intents):
             if len(intents) > 1:

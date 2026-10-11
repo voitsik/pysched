@@ -130,9 +130,9 @@ def srread(input_iterator, stdin, select, thiscat):
             encoded_alias = [util.resize_string(
                 source, s.schc1.srcname.itemsize, "source").encode()
                              for source in values["source"] if source != ""]
-            if np.in1d(encoded_alias, 
-                       np.where(s.schn1.srcatn[:s.schn1.nsrc] == 0, 
-                                s.schc1.srcname[:s.schn1.nsrc], 0)).any():
+            source_mask = s.schn1.srcatn[:s.schn1.nsrc] == 0
+            scheduled_sources = s.schc1.srcname[:s.schn1.nsrc][source_mask]
+            if np.isin(encoded_alias, scheduled_sources).any():
                 keepit = True
                 srused = True
         else:

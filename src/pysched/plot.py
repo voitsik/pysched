@@ -12,7 +12,7 @@ matplotlib.use("Qt5Agg")
 with shut_up_mpl():
     matplotlib.rcParams["toolbar"] = "toolmanager"
 
-from pkg_resources import parse_version
+from packaging.version import parse as parse_version
 
 # in matplotlib version 3.3 the internal epoch was changed from year 1 to 1970
 # this epoch is used to convert dates to floating points internally

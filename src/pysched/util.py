@@ -2,16 +2,12 @@ import schedlib as s
 
 import numpy as np
 
-import pkg_resources
-
 import pickle
 import collections
 import copy
 import re
 import itertools
 import os.path
-import pkg_resources
-
 class KeyinError(RuntimeError):
     pass
 
@@ -140,8 +136,10 @@ def get_catalog_dir():
     if "SCHED" in os.environ:
         return os.path.join(os.environ["SCHED"], "catalogs")
     else:
-        return os.path.join(pkg_resources.resource_filename("pysched", ".."), 
-                            "catalogs")
+        return os.path.join(
+            os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+            "catalogs",
+        )
 
 bool2str = lambda b: "T" if b else "F"
 

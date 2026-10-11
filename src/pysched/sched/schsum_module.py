@@ -431,11 +431,17 @@ def write_correlator(sum_file, scans, scan_offset, setup_files):
         data_rate = {scan_index: 0 for scan_index, _ in experiment_scans}
     else:
         n_pols = 2 if s.schco.corpol else 1
-        data_rate = {scan_index: 4 * n * (n + 1) *
-                     scan_setup_file[scan_index].mschn * s.schco.corchan *
-                     n_pols * scan_setup_file[scan_index].fspeed /
-                     s.schco.coravg
-                     for scan_index, n in number_of_stations.items()}
+        data_rate = {
+            scan_index: 4
+            * int(n)
+            * (int(n) + 1)
+            * int(scan_setup_file[scan_index].mschn)
+            * int(s.schco.corchan)
+            * n_pols
+            * float(scan_setup_file[scan_index].fspeed)
+            / float(s.schco.coravg)
+            for scan_index, n in number_of_stations.items()
+        }
     
     scan_time = {scan_index: (scan.stopj - scan.startj) * secpday
                  for scan_index, scan in experiment_scans}

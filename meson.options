@@ -1,0 +1,7 @@
+option(
+  'schedarch',
+  type: 'combo',
+  choices: ['linux', 'unix', 'sun', 'hp'],
+  value: 'linux',
+  description: 'Select the system-dependent SCHED Fortran sources.',
+)

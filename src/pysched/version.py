@@ -1,11 +1,13 @@
 import requests
+from importlib.metadata import (
+    PackageNotFoundError,
+    version as distribution_version,
+)
 from packaging import version
 
-import pkg_resources
-
 try:
-    pysched_version = pkg_resources.get_distribution("pythonSCHED").version
-except:
+    pysched_version = distribution_version("pythonSCHED")
+except PackageNotFoundError:
     pysched_version = "unknown"
 
 def get_latest_version():

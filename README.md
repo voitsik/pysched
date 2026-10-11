@@ -35,10 +35,9 @@ where the optional parameter `-p`  retrieves the graphical mode in order to be a
 
 ### Dependecies
 
-- Python (>= 3.6).
+- Python (>= 3.9).
 - A Fortran compiler.
-- NumPy (>= 1.16, < 1.24).
-- Setuptools (<60)
+- NumPy (>= 2.0).
 - Git.
 
 #### PyQt5 dependencies
@@ -56,21 +55,18 @@ conda env create -f pySCHED.yaml
 conda activate pySCHED
 ```
 
-### pip (not recommended)
+### pip
 
-**pySCHED** requires an older version of both NumPy and setuptools, therefore we do not recommend installing it outside of a dedicated (virtual) environment. 
-If you want to install **pySCHED** using `pip`, it can be used directly:
+We recommend installing **pySCHED** in a dedicated environment. Install the latest release with:
 
 ```bash
-sudo pip3 install 'numpy<1.24'
-sudo pip3 install 'setuptools<60'
-sudo pip3 install pythonSCHED
+python -m pip install pythonSCHED
 ```
 
-`pip3` is included in most python3 installations, otherwise it can be installed with:
+To build and install from a source checkout, use:
 
 ```bash
-sudo apt-get install python3-pip
+python -m pip install .
 ```
 
 ### Known issues

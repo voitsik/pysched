@@ -1,0 +1,36 @@
+[build-system]
+requires = ["meson-python>=0.16", "numpy>=2.0"]
+build-backend = "mesonpy"
+
+[project]
+name = "pythonSCHED"
+version = "1.29.1"
+description = "Python extension of NRAO's VLBI scheduling program SCHED"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "GPL-3.0-only"
+license-files = ["LICENSE"]
+authors = [{ name = "Bob Eldering", email = "eldering@jive.eu" }]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Fortran",
+  "Operating System :: POSIX :: Linux",
+  "Operating System :: MacOS",
+  "Intended Audience :: Science/Research",
+  "Topic :: Scientific/Engineering :: Astronomy",
+]
+dependencies = [
+  "numpy>=2.0",
+  "pyqt5",
+  "matplotlib>=3.5.2",
+  "formlayout",
+  "astropy",
+  "bottle",
+  "gitpython",
+  "requests",
+  "packaging",
+  "fortranformat",
+]
+
+[project.urls]
+Homepage = "https://github.com/jive-vlbi/sched"

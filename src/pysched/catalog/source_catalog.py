@@ -93,6 +93,6 @@ class SourceCatalog(Catalog):
         Pre: self has initialized entries
         """
         for source in self.scheduled():
-            source.aliases = source.source[np.in1d(source.csused, ["+", "*"])]
+            source.aliases = source.source[np.isin(source.csused, ["+", "*"])]
         
 
